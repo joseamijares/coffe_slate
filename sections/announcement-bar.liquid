@@ -1,26 +1,34 @@
-{%- for block in section.blocks -%}
-  {%- case block.type -%}
-    {%- when 'announcement' -%}
-      <div class="announcement-bar color-{{ block.settings.color_scheme }} gradient" role="region" aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }}>
-        {%- if block.settings.text != blank -%}
-          {%- if block.settings.link != blank -%}
-            <a href="{{ block.settings.link }}" class="announcement-bar__link link link--text focus-inset animate-arrow">
+
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when 'announcement' -%}
+        <div class="announcement-bar color-{{ block.settings.color_scheme }} gradient" role="region" aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }}>
+          {%- if block.settings.text != blank -%}
+            {%- if block.settings.link != blank -%}
+              <a href="{{ block.settings.link }}" class="announcement-bar__link link link--text focus-inset animate-arrow">
+            {%- endif -%}
+                <div class="page-width">
+                  <p class="announcement-bar__message {{ block.settings.text_alignment }} h5">
+                    <span>{{ block.settings.text | escape }}</span>
+                    {%- if block.settings.link != blank -%}
+                      {% render 'icon-arrow' %}
+                    {%- endif -%}
+                  </p>
+                </div>
+            {%- if block.settings.link != blank -%}
+              </a>
+            {%- endif -%}
           {%- endif -%}
-              <div class="page-width">
-                <p class="announcement-bar__message {{ block.settings.text_alignment }} h5">
-                  <span>{{ block.settings.text | escape }}</span>
-                  {%- if block.settings.link != blank -%}
-                    {% render 'icon-arrow' %}
-                  {%- endif -%}
-                </p>
-              </div>
-          {%- if block.settings.link != blank -%}
-            </a>
-          {%- endif -%}
-        {%- endif -%}
-      </div>
-  {%- endcase -%}
-{%- endfor -%}
+        </div>
+        <!-- Countdown Block -->
+        {% when 'countdown_snip'%}
+          {% render 'countdown', 
+            date: block.settings.countdown_date,
+            text: block.settings.countdown_text,
+            message: block.settings.countdown_message
+          %}
+    {%- endcase -%}
+  {%- endfor -%}
 
 {% schema %}
 {
@@ -92,14 +100,33 @@
           "label": "t:sections.announcement-bar.blocks.announcement.settings.link.label"
         }
       ]
+    },
+    {
+      "type": "countdown_snip",
+      "name": "Countdown",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Countdown Settings"
+        },
+        {
+          "type": "text",
+          "label": "Countdown Date",
+          "id": "countdown_date",
+          "info": "Format example 'June 16, 2025 23:59:00 EST'"
+        },
+        {
+          "type": "text",
+          "label": "Countdown Text",
+          "id": "countdown_text"
+        },
+        {
+          "type": "text",
+          "label": "Countdown Finished Message",
+          "id": "countdown_message"
+        }
+      ]
     }
-  ],
-  "default": {
-    "blocks": [
-      {
-        "type": "announcement"
-      }
-    ]
-  }
+  ]
 }
 {% endschema %}

@@ -1,9 +1,8 @@
-live:
+dev:
   password: shptka_6374b13b9d7e3eb473f571759228d539
   theme_id: "151820796191"
   store: slate-coffee-demo-jose.myshopify.com
-
-dev:
+live:
   password: shptka_6374b13b9d7e3eb473f571759228d539
   theme_id: "151820796191"
   store: slate-coffee-demo-jose.myshopify.com

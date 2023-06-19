@@ -1,0 +1,79 @@
+/*CUSTOM CSS*/
+
+/*******************************CSS BANNER VIDEO************************************************/
+.banner_image-content {
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+.banner_video-content {
+    width: 100%;
+  }
+#banner_video_mobile {
+    display: none;
+  }
+#fullscreen-video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+#fullscreen-video-mob{
+    width: 100%;
+  }
+  .banner_video-content .banner__content {
+    height: 100%;
+  }
+
+  /*******************************CSS COUNTDOWN************************************************/
+  #countdown {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-content: center;
+    align-items: baseline;
+  }
+  #countdown > span:nth-child(1) {
+    margin-right: 10px;
+  }
+  .countdown-item {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  #countdown .countdown-item .countdown-number {
+    font-size: 26px;
+    font-weight: bold;
+  }
+  #countdown span,
+  .countdown-label {
+    font-size: 20px;
+    text-transform: capitalize;
+  }
+  #message {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.7rem;
+    color: #000;
+  }
+
+  /*******************************CSS DRAWER UPSELL PRODUCT************************************************/
+  .drawer_int {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    align-items: center;
+  }
+  .drawer_pdp_info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /*******************************CSS RESPONSIVE************************************************/
+  @media only screen and (max-width: 720px) {
+    .banner_video-content .banner__content {
+        height: auto;
+    }
+}

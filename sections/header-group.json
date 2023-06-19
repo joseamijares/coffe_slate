@@ -13,10 +13,20 @@
             "color_scheme": "background-1",
             "link": ""
           }
+        },
+        "1f359c7c-e24c-4805-8a59-cd4609a9ad2e": {
+          "type": "countdown_snip",
+          "settings": {
+            "show_countdown": false,
+            "countdown_date": "June 28, 2023 23:59:00 EST",
+            "countdown_text": "World Premier",
+            "countdown_message": "Congrats"
+          }
         }
       },
       "block_order": [
-        "announcement-bar-0"
+        "announcement-bar-0",
+        "1f359c7c-e24c-4805-8a59-cd4609a9ad2e"
       ],
       "settings": {}
     },

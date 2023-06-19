@@ -6,6 +6,7 @@
 {% endcomment %}
 
 <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'upsell.js' | asset_url }}" defer="defer"></script>
 
 <style>
   .drawer {
@@ -350,6 +351,27 @@
           <div id="CartDrawer-CartErrors" role="alert"></div>
         </form>
       </cart-drawer-items>
+
+      <!-- Upsell Start -->
+
+      <div class="drawer_container">
+        <h3>{{ settings.drawer_title }}</h3>
+        <div class="drawer_int">
+          <div class="drawer_pdp_image">
+            <img src="{{ settings.product.featured_image.src | img_url: '140x' }}" loading="lazy" alt="{{ settings.product.title }}">
+          </div>
+          <div class="drawer_pdp_info">
+            <h4>{{ settings.product.title }}</h4>
+            <span>{{ settings.product.price | money}}</span>
+            <upsell-button>
+              <button class="quick-add" data-variant-id="{{ settings.product.selected_or_first_available_variant.id }}">Quick Add</button>
+            </upsell-button>
+          </div>
+        </div>
+      </div>
+
+      <!-- End -->
+
       <div class="drawer__footer">
         {%- if settings.show_cart_note -%}
           <details id="Details-CartDrawer">
