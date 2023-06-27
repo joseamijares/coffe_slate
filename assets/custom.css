@@ -76,4 +76,28 @@
     .banner_video-content .banner__content {
         height: auto;
     }
+    #banner_video_mobile {
+      position: absolute;
+    }
+    .banner--medium:not(.banner--mobile-bottom):not(.banner--adapt) .banner__content {
+      min-height: 20rem !important;
+    }
+    #fullscreen-video-mob {
+      width: 100%;
+      min-height: 25rem;
+      object-fit: cover;
+    }
+    #countdown span, .countdown-label {
+      font-size: 14px;
+      text-transform: capitalize;
+      line-height: 16px;
+    }
+    #countdown {
+      padding: 14px 20px 0;
+    }
+    .countdown-item {
+      display: inline-block;
+      margin-right: 10px;
+      line-height: 19px;
+    }
 }
